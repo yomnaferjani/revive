@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="edu.urgence.controllers.ModifierExamenController"
+            prefWidth="900" prefHeight="640"
+            style="-fx-background-color: #EEF4FB;">
+
+    <top>
+        <VBox>
+            <HBox alignment="CENTER_LEFT" spacing="18" style="-fx-background-color: linear-gradient(to right, #0B4EA2, #0E9B8A); -fx-padding: 16 28 16 28;">
+                <ImageView fitWidth="180" fitHeight="78" preserveRatio="true">
+                    <image><Image url="@Images/logo_revive.png"/></image>
+                </ImageView>
+                <Separator orientation="VERTICAL" prefHeight="44" style="-fx-background-color: rgba(255,255,255,0.35);"/>
+                <VBox spacing="2">
+                    <Label text=" Laboratoire &amp; Imagerie" style="-fx-text-fill: rgba(255,255,255,0.80); -fx-font-size: 12px;"/>
+                    <Label text="Modifier un Examen" style="-fx-text-fill: white; -fx-font-size: 22px; -fx-font-weight: bold;"/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label text="Service des Urgences" style="-fx-background-color: rgba(255,255,255,0.18); -fx-text-fill: white; -fx-font-size: 13px; -fx-padding: 6 14; -fx-background-radius: 20; -fx-border-color: rgba(255,255,255,0.35); -fx-border-radius: 20;"/>
+            </HBox>
+            <Region prefHeight="4" style="-fx-background-color: linear-gradient(to right, #22C55E, #0E9B8A, #0B4EA2);"/>
+        </VBox>
+    </top>
+
+    <center>
+        <StackPane style="-fx-padding: 30;">
+            <VBox spacing="18" maxWidth="560" style="-fx-background-color: white; -fx-background-radius: 18; -fx-padding: 36 40; -fx-effect: dropshadow(gaussian,rgba(11,78,162,0.13),18,0,0,5);">
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="[EXAM]" style="-fx-font-size: 22px; -fx-text-fill: #0B4EA2;"/>
+                    <VBox spacing="2">
+                        <Label text="Modifier l'Examen" style="-fx-text-fill: #0B4EA2; -fx-font-size: 18px; -fx-font-weight: bold;"/>
+                        <Label text="Modifiez les informations ci-dessous" style="-fx-text-fill: #64748B; -fx-font-size: 12px;"/>
+                    </VBox>
+                </HBox>
+
+                <Separator/>
+
+                <VBox spacing="6">
+                    <Label text="ID Consultation" style="-fx-text-fill: #334155; -fx-font-size: 13px; -fx-font-weight: bold;"/>
+                    <TextField fx:id="tfIdConsultation" promptText="Ex : 1024" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #CBD5E1; -fx-padding: 9 14; -fx-font-size: 13px;"/>
+                </VBox>
+
+                <VBox spacing="6">
+                    <Label text="Type d'examen" style="-fx-text-fill: #334155; -fx-font-size: 13px; -fx-font-weight: bold;"/>
+                    <TextField fx:id="tfTypeExamen" promptText="Ex : Radiographie, IRM, Analyse sanguine" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #CBD5E1; -fx-padding: 9 14; -fx-font-size: 13px;"/>
+                </VBox>
+
+                <VBox spacing="6">
+                    <Label text="Statut" style="-fx-text-fill: #334155; -fx-font-size: 13px; -fx-font-weight: bold;"/>
+                    <ComboBox fx:id="cbStatut" prefWidth="480" style="-fx-border-color: #CBD5E1; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-size: 13px;"/>
+                </VBox>
+
+                <CheckBox fx:id="cbUrgent" text="Examen urgent" style="-fx-text-fill: #EF4444; -fx-font-weight: bold; -fx-font-size: 13px;"/>
+
+                <Separator/>
+
+                <Button text="Modifier" onAction="#handleModifier" style="-fx-background-color: #0B4EA2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 28; -fx-font-size: 13px; -fx-cursor: hand;"/>
+
+                <Label fx:id="lblMessage" style="-fx-text-fill: #16A34A; -fx-font-weight: bold; -fx-font-size: 13px;"/>
+            </VBox>
+        </StackPane>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER" style="-fx-background-color: #0B4EA2; -fx-padding: 8;">
+            <Label text="REVIVE — Système de Gestion des Urgences" style="-fx-text-fill: rgba(255,255,255,0.65); -fx-font-size: 11px;"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

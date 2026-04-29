@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="edu.urgence.controllers.SupprimerExamenController"
+            prefWidth="900" prefHeight="580"
+            style="-fx-background-color: #EEF4FB;">
+
+    <!-- ═══════════════════════  HEADER  ═══════════════════════ -->
+    <top>
+        <VBox>
+            <HBox alignment="CENTER_LEFT" spacing="18"
+                  style="-fx-background-color: linear-gradient(to right, #0B4EA2, #0E9B8A);
+                         -fx-padding: 16 28 16 28;">
+
+                <ImageView fitWidth="180" fitHeight="78" preserveRatio="true">
+                    <image>
+                        <Image url="@Images/logo_revive.png"/>
+                    </image>
+                </ImageView>
+
+                <Separator orientation="VERTICAL"
+                           style="-fx-background-color: rgba(255,255,255,0.35);"
+                           prefHeight="44"/>
+
+                <VBox spacing="2">
+                    <Label text=" Laboratoire &amp; Imagerie"
+                           style="-fx-text-fill: rgba(255,255,255,0.80);
+                                  -fx-font-size: 12px;"/>
+                    <Label text="Supprimer un Examen"
+                           style="-fx-text-fill: white;
+                                  -fx-font-size: 22px; -fx-font-weight: bold;"/>
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Label text="🏥  Service des Urgences"
+                       style="-fx-background-color: rgba(255,255,255,0.18);
+                              -fx-text-fill: white; -fx-font-size: 13px;
+                              -fx-padding: 6 14; -fx-background-radius: 20;
+                              -fx-border-color: rgba(255,255,255,0.35);
+                              -fx-border-radius: 20;"/>
+            </HBox>
+
+            <!-- Ligne décorative rouge (danger) -->
+            <Region prefHeight="4"
+                    style="-fx-background-color: linear-gradient(to right,#EF4444,#B91C1C,#0B4EA2);"/>
+        </VBox>
+    </top>
+
+    <!-- ═══════════════════════  CARTE CONFIRMATION  ═══════════════════════ -->
+    <center>
+        <StackPane style="-fx-padding: 40;">
+            <VBox spacing="22" maxWidth="540"
+                  style="-fx-background-color: white;
+                         -fx-background-radius: 18;
+                         -fx-padding: 40 44;
+                         -fx-effect: dropshadow(gaussian,rgba(239,68,68,0.18),20,0,0,6);">
+
+                <!-- Icône + titre de danger -->
+                <HBox spacing="14" alignment="CENTER_LEFT">
+                    <Label text="⚠"
+                           style="-fx-font-size: 36px; -fx-text-fill: #EF4444;"/>
+                    <VBox spacing="4">
+                        <Label text="Confirmation de suppression"
+                               style="-fx-text-fill: #EF4444; -fx-font-size: 20px;
+                                      -fx-font-weight: bold;"/>
+                        <Label text="Cette action est irréversible."
+                               style="-fx-text-fill: #94A3B8; -fx-font-size: 12px;"/>
+                    </VBox>
+                </HBox>
+
+                <Separator style="-fx-background-color: #FEE2E2;"/>
+
+                <!-- Message de confirmation -->
+                <VBox spacing="8"
+                      style="-fx-background-color: #FFF5F5;
+                             -fx-background-radius: 10;
+                             -fx-padding: 16 20;
+                             -fx-border-color: #FECACA;
+                             -fx-border-radius: 10;">
+                    <Label text="Voulez-vous vraiment supprimer cet examen ?"
+                           style="-fx-text-fill: #334155; -fx-font-size: 15px;
+                                  -fx-font-weight: bold; -fx-wrap-text: true;"/>
+                    <Label text="Les données associées seront définitivement perdues."
+                           style="-fx-text-fill: #64748B; -fx-font-size: 13px;
+                                  -fx-wrap-text: true;"/>
+                </VBox>
+
+                <Separator style="-fx-background-color: #E2E8F0;"/>
+
+                <!-- Bouton supprimer -->
+                <HBox spacing="14">
+                    <Button text="🗑  Supprimer définitivement"
+                            onAction="#handleSupprimer"
+                            style="-fx-background-color: #EF4444; -fx-text-fill: white;
+                                   -fx-font-weight: bold; -fx-background-radius: 10;
+                                   -fx-padding: 11 26; -fx-font-size: 14px;
+                                   -fx-cursor: hand;"/>
+                </HBox>
+
+            </VBox>
+        </StackPane>
+    </center>
+
+    <!-- ═══════════════════════  FOOTER  ═══════════════════════ -->
+    <bottom>
+        <HBox alignment="CENTER"
+              style="-fx-background-color: #0B4EA2; -fx-padding: 8;">
+            <Label text="REVIVE — Système de Gestion des Urgences"
+                   style="-fx-text-fill: rgba(255,255,255,0.65); -fx-font-size: 11px;"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

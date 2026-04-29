@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="edu.urgence.controllers.GestionResultatController"
+            prefWidth="1100" prefHeight="720"
+            style="-fx-background-color: #EEF4FB;">
+
+    <!-- ═══════  HEADER  ═══════ -->
+    <top>
+        <VBox>
+            <HBox alignment="CENTER_LEFT" spacing="0" style="-fx-background-color: linear-gradient(to right, #0B4EA2, #0E9B8A);">
+                <HBox alignment="CENTER" style="-fx-background-color: #0B4EA2; -fx-padding: 10 20; -fx-min-width: 200; -fx-pref-width: 200;">
+                    <ImageView fitWidth="180" fitHeight="78" preserveRatio="true">
+                        <image><Image url="@Images/logo_revive.png"/></image>
+                    </ImageView>
+                </HBox>
+                <Region prefWidth="1" style="-fx-background-color: rgba(255,255,255,0.40); -fx-min-height: 70;"/>
+                <VBox spacing="2" style="-fx-padding: 14 20;">
+                    <Label text="Laboratoire &amp; Imagerie" style="-fx-text-fill: rgba(255,255,255,0.80); -fx-font-size: 12px;"/>
+                    <Label text="Résultats d'Examens" style="-fx-text-fill: white; -fx-font-size: 22px; -fx-font-weight: bold;"/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <HBox alignment="CENTER" style="-fx-padding: 0 24 0 0;">
+                    <Label text=" 🏥 Service des Urgences" style="-fx-background-color: rgba(255,255,255,0.18); -fx-text-fill: white; -fx-font-size: 13px; -fx-padding: 6 14; -fx-background-radius: 20; -fx-border-color: rgba(255,255,255,0.35); -fx-border-radius: 20;"/>
+                </HBox>
+            </HBox>
+            <Region prefHeight="4" style="-fx-background-color: linear-gradient(to right, #0B4EA2, #0E9B8A, #0E9B8A);"/>
+        </VBox>
+    </top>
+
+    <!-- ═══════  SIDEBAR GAUCHE  ═══════ -->
+    <left>
+        <VBox spacing="0" prefWidth="200" style="-fx-background-color: linear-gradient(to bottom, #0B4EA2, #0E9B8A, #0E9B8A); -fx-min-height: 600;">
+
+            <Label text="NAVIGATION" style="-fx-text-fill: rgba(255,255,255,0.75); -fx-font-size: 10px; -fx-font-weight: bold; -fx-padding: 24 18 10 18;"/>
+
+            <!-- Examens  — inactif -->
+            <Button text="  Examens Demandés" onAction="#showExamens" maxWidth="Infinity"
+                    style="-fx-background-color: transparent; -fx-text-fill: rgba(255,255,255,0.70); -fx-font-size: 13px; -fx-padding: 14 18; -fx-background-radius: 0; -fx-alignment: CENTER_LEFT; -fx-cursor: hand;"/>
+
+            <!-- Résultats  — actif -->
+            <Button text="  Résultats d'Examens" onAction="#showResultats" maxWidth="Infinity"
+                    style="-fx-background-color: rgba(255,255,255,0.15); -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 13px; -fx-padding: 14 18; -fx-background-radius: 0; -fx-alignment: CENTER_LEFT; -fx-cursor: hand; -fx-border-color: transparent transparent transparent #22C55E; -fx-border-width: 0 0 0 4;"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <VBox spacing="4" style="-fx-padding: 16 18; -fx-background-color: rgba(0,0,0,0.15);">
+                <Label text="Module actif" style="-fx-text-fill: rgba(255,255,255,0.50); -fx-font-size: 10px;"/>
+                <Label text="Labo &amp; Imagerie" style="-fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+            </VBox>
+        </VBox>
+    </left>
+
+    <!-- ═══════  CONTENU PRINCIPAL  ═══════ -->
+    <center>
+        <VBox spacing="16" style="-fx-padding: 24 28;">
+
+            <!-- Barre d'actions avec boutons bleus dégradés -->
+            <HBox spacing="12" alignment="CENTER_LEFT" style="-fx-background-color: white; -fx-background-radius: 14; -fx-padding: 14 20; -fx-effect: dropshadow(gaussian,rgba(11,78,162,0.10),10,0,0,3);">
+                <Label text="Actions :" style="-fx-text-fill: #334155; -fx-font-size: 13px; -fx-font-weight: bold;"/>
+
+                <!-- Ajouter : bleu marine -->
+                <Button text="+ Ajouter" onAction="#ouvrirAjouter" style="-fx-background-color: #1E40AF; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 9 22; -fx-font-size: 13px; -fx-cursor: hand;"/>
+
+                <!-- Modifier : bleu turquoise -->
+                <Button text="Modifier" onAction="#ouvrirModifier" style="-fx-background-color: #0891B2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 9 22; -fx-font-size: 13px; -fx-cursor: hand;"/>
+
+                <!-- Supprimer : bleu ciel -->
+                <Button text="Supprimer" onAction="#ouvrirSupprimer" style="-fx-background-color: #38BDF8; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 9 22; -fx-font-size: 13px; -fx-cursor: hand;"/>
+
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Actualiser" onAction="#handleActualiser" style="-fx-background-color: #EAF6FF; -fx-text-fill: #0B4EA2; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 9 22; -fx-font-size: 13px; -fx-cursor: hand;"/>
+            </HBox>
+
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent; -fx-background: transparent;">
+                <VBox fx:id="containerResultats" spacing="10" style="-fx-padding: 4 2;"/>
+            </ScrollPane>
+
+            <Label fx:id="lblMessage" text="" style="-fx-text-fill: #EF4444; -fx-font-weight: bold; -fx-font-size: 13px;"/>
+        </VBox>
+    </center>
+
+    <!-- ═══════  FOOTER  ═══════ -->
+    <bottom>
+        <HBox alignment="CENTER" style="-fx-background-color: #0B4EA2; -fx-padding: 8;">
+            <Label text="REVIVE — Système de Gestion des Urgences" style="-fx-text-fill: rgba(255,255,255,0.65); -fx-font-size: 11px;"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
